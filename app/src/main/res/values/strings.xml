@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">capstone_Quasars_Bobal</string>
+    <string name="front">FRONT</string>
+    <string name="back">BACK</string>
 </resources>
