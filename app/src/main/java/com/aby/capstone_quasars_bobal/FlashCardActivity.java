@@ -7,7 +7,7 @@ import android.animation.AnimatorSet;
 import android.os.Bundle;
 import android.view.View;
 
-public class MainActivity extends AppCompatActivity {
+public class FlashCardActivity extends AppCompatActivity {
 
     private AnimatorSet mSetRightOut;
     private AnimatorSet mSetLeftIn;
