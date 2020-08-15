@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -24,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText emailTV, passwordTV;
     private Button loginBtn;
     private ProgressBar progressBar;
+    private TextView signUpOption;
 
     private FirebaseAuth mAuth;
     @Override
@@ -56,7 +58,15 @@ public class LoginActivity extends AppCompatActivity {
         String email, password;
         email = emailTV.getText().toString();
         password = passwordTV.getText().toString();
+        signUpOption = findViewById(R.id.signUpOption);
 
+        signUpOption.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mIntent = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(mIntent);
+            }
+        });
         if (TextUtils.isEmpty(email)) {
             Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
             return;

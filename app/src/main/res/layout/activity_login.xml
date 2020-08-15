@@ -4,15 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:padding="22dp"
+    android:paddingTop="0dp"
     tools:context=".LoginActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Account login"/>
+        app:srcCompat="@drawable/bobal_logo_circle_resized" />
+
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/email_layout"
         android:layout_width="match_parent"
@@ -45,12 +49,22 @@
         android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
-        android:background="@drawable/shadow_button"/>
+        android:background="@drawable/shadow_button"
+        android:text="Login" />
 
     <ProgressBar
         android:id="@+id/progressBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/signUpOption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="10dp"
+        android:text="Don't have an account? Sign up here."
+        android:textColor="@color/bobalgreen"
+        android:textSize="16sp" />
+
 </LinearLayout>
