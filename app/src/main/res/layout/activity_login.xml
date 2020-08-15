@@ -45,7 +45,8 @@
         android:id="@+id/login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login" />
+        android:text="Login"
+        android:background="@drawable/shadow_button"/>
 
     <ProgressBar
         android:id="@+id/progressBar"
