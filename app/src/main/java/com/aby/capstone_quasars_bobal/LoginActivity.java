@@ -9,8 +9,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,8 +21,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
-    private EditText emailTV, passwordTV;
-    private Button loginBtn;
+    private TextView emailTV, passwordTV;
+    private ImageButton loginBtn;
     private ProgressBar progressBar;
     private TextView signUpOption;
 
@@ -58,7 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         String email, password;
         email = emailTV.getText().toString();
         password = passwordTV.getText().toString();
-        signUpOption = findViewById(R.id.signUpOption);
+        signUpOption = findViewById(R.id.signUpOp);
 
         signUpOption.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,11 +67,11 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         if (TextUtils.isEmpty(email)) {
-            Toast.makeText(getApplicationContext(), "Please enter email...", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter your email", Toast.LENGTH_LONG).show();
             return;
         }
         if (TextUtils.isEmpty(password)) {
-            Toast.makeText(getApplicationContext(), "Please enter password!", Toast.LENGTH_LONG).show();
+            Toast.makeText(getApplicationContext(), "Please enter your password", Toast.LENGTH_LONG).show();
             return;
         }
 
