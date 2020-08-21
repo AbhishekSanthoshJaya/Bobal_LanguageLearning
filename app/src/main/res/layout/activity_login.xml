@@ -5,6 +5,73 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F6EEC8"
+    android:background="#FDFAE4"
     android:gravity="center_vertical"
-    tools:context=".LoginActivity"/>
+    tools:context=".LoginActivity">
+
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="111dp"
+        android:layout_height="79dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.463" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="327dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_textview"
+        android:gravity="center"
+        android:hint="Password"
+        android:textAlignment="gravity"
+        android:textColor="#F3EABC"
+        android:textColorHint="#F3EABC"
+        android:edit
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="250dp"
+        android:layout_height="235dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.081"
+        tools:srcCompat="@drawable/boballogo" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="327dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="132dp"
+        android:background="@drawable/rounded_textview"
+        android:gravity="center"
+        android:hint="E-mail"
+        android:textAlignment="gravity"
+        android:textColor="#F3EABC"
+        android:textColorHint="#F3EABC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <ImageButton
+        android:id="@+id/imageButton9"
+        android:layout_width="267dp"
+        android:layout_height="38dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.073"
+        app:srcCompat="@drawable/loginbtn"
+        tools:layout_editor_absoluteX="75dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
