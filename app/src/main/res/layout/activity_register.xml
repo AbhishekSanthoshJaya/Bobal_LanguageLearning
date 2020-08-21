@@ -9,16 +9,16 @@
     android:padding="16dp"
     tools:context=".RegisterActivity">
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="377dp"
+        android:layout_height="131dp"
+        app:srcCompat="@drawable/bobal_logo_circle_resized" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Register new account" />
-
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Email" />
 
     <EditText
         android:id="@+id/password"
@@ -26,6 +26,12 @@
         android:layout_height="wrap_content"
         android:hint="Password"
         android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email" />
 
     <Button
         android:id="@+id/register"
