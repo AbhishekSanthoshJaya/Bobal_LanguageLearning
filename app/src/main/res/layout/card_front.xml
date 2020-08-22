@@ -1,22 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:tint="@color/cardFront"
+        android:id="@+id/imageView"
+        android:layout_width="299dp"
+        android:layout_height="345dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="171dp"
+        android:layout_marginEnd="56dp"
+        android:layout_marginBottom="215dp"
         android:padding="16dp"
-        android:src="@drawable/rectangle"/>
+        android:src="@drawable/rectangle"
+        android:tint="@color/cardFront"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/textView"
+        style="@style/Base.TextAppearance.AppCompat.Display1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="@string/front"
         android:textColor="@color/white"
-        style="@style/Base.TextAppearance.AppCompat.Display1"
-        android:gravity="center"/>
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
