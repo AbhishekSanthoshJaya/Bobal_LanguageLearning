@@ -13,9 +13,9 @@
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="406dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="379dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="88dp"
         android:background="@drawable/rounded_textview"
         android:gravity="center"
         android:hint="@string/h2"
@@ -26,7 +26,7 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="406dp"
+        android:layout_width="379dp"
         android:layout_height="45dp"
         android:layout_marginTop="48dp"
         android:background="@drawable/rounded_textview"
@@ -39,7 +39,7 @@
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="406dp"
+        android:layout_width="379dp"
         android:layout_height="45dp"
         android:layout_marginTop="48dp"
         android:background="@drawable/rounded_textview"
@@ -53,7 +53,7 @@
 
     <TextView
         android:id="@+id/register"
-        android:layout_width="406dp"
+        android:layout_width="379dp"
         android:layout_height="45dp"
         android:layout_marginTop="48dp"
         android:background="@drawable/rounded_textview"
@@ -68,7 +68,7 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="406dp"
+        android:layout_width="379dp"
         android:layout_height="45dp"
         android:layout_marginTop="48dp"
         android:background="@drawable/rounded_textview"
@@ -84,14 +84,13 @@
         android:id="@+id/textView3"
         android:layout_width="333dp"
         android:layout_height="46dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="52dp"
         android:fontFamily="@font/convergence"
         android:text="Create an Account"
         android:textColor="#FDFAE4"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -104,21 +103,20 @@
         android:textColor="#FCFADD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.378"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/register"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
+        android:layout_marginTop="72dp"
         android:text="Sign in."
         android:textColor="#FCFADD"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.089"
         app:layout_constraintStart_toEndOf="@+id/textView5"
         app:layout_constraintTop_toBottomOf="@+id/register" />
 </androidx.constraintlayout.widget.ConstraintLayout>
