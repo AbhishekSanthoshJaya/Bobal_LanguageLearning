@@ -7,6 +7,7 @@ import android.animation.AnimatorSet;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.TextView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -15,6 +16,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class FlashCardActivity extends AppCompatActivity {
 
@@ -23,11 +25,14 @@ public class FlashCardActivity extends AppCompatActivity {
     private boolean mIsBackVisible = false;
     private View mCardFrontLayout;
     private View mCardBackLayout;
+    TextView txtFront, txtBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcard);
+        txtFront = findViewById(R.id.txtFront);
+        txtBack = findViewById(R.id.txtBack);
         findViews();
         loadAnimations();
         changeCameraDistance();
@@ -89,14 +94,19 @@ public class FlashCardActivity extends AppCompatActivity {
     }
 
     public void parseJSON() throws JSONException {
+        HashMap<String, String> wordsMap= new HashMap<>();
         String jsonStr = loadJSONFromAsset();
         JSONArray jsonarray = new JSONArray(jsonStr);
         for (int i = 0; i < jsonarray.length(); i++) {
             JSONObject jsonobject = jsonarray.getJSONObject(i);
             String word = jsonobject.getString("word");
             String meaning = jsonobject.getString("meaning");
+            wordsMap.put(word, meaning);
+            txtFront.setText(word);
+            txtBack.setText(wordsMap.get(word));
             Log.i("word", word);
             Log.i("meaning", meaning);
+            Log.i("map", wordsMap.toString());
         }
     }
 }
