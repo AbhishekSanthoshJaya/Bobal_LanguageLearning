@@ -5,7 +5,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 public class FlashCardActivity extends AppCompatActivity {
 
@@ -22,7 +31,12 @@ public class FlashCardActivity extends AppCompatActivity {
         findViews();
         loadAnimations();
         changeCameraDistance();
-
+        //loadJSONFromAsset();
+        try {
+            parseJSON();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 
     private void changeCameraDistance() {
@@ -57,4 +71,33 @@ public class FlashCardActivity extends AppCompatActivity {
             mIsBackVisible = false;
         }
     }
+
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = this.getAssets().open("words.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+    }
+
+    public void parseJSON() throws JSONException {
+        String jsonStr = loadJSONFromAsset();
+        JSONArray jsonarray = new JSONArray(jsonStr);
+        for (int i = 0; i < jsonarray.length(); i++) {
+            JSONObject jsonobject = jsonarray.getJSONObject(i);
+            String word = jsonobject.getString("word");
+            String meaning = jsonobject.getString("meaning");
+            Log.i("word", word);
+            Log.i("meaning", meaning);
+        }
+    }
 }
+
