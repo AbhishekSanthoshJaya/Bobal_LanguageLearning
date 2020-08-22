@@ -23,12 +23,14 @@
         app:tint="@color/cardBack" />
 
     <TextView
+        android:id="@+id/txtBack"
         style="@style/Base.TextAppearance.AppCompat.Display1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="220dp"
+        android:layout_height="280dp"
         android:gravity="center"
         android:text="@string/back"
         android:textColor="@color/white"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toEndOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="@+id/imageView3"
