@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.animation.AnimatorInflater;
 import android.animation.AnimatorSet;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -30,11 +31,14 @@ public class FlashCardActivity extends AppCompatActivity {
     private View mCardBackLayout;
     TextView txtFront, txtBack;
     String word, meaning;
+    int correctAnswers = 0;
+
     ArrayList<String> wordList = new ArrayList<>();
     ArrayList<String> meaningList = new ArrayList<>();
     ArrayList<String> randomList = new ArrayList<>();
     LinearLayout btnLayout;
     Button btnCorrect, btnWrong;
+    TextView txtScore;
     //HashMap<String, String> wordsMap= new HashMap<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +48,7 @@ public class FlashCardActivity extends AppCompatActivity {
         txtBack = findViewById(R.id.txtBack);
         btnCorrect = findViewById(R.id.btnCorrect);
         btnWrong = findViewById(R.id.btnWrong);
+        txtScore = findViewById(R.id.txtScore);
         findViews();
         loadAnimations();
         changeCameraDistance();
@@ -61,6 +66,8 @@ public class FlashCardActivity extends AppCompatActivity {
         btnCorrect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                correctAnswers++;
+                txtScore.setText(correctAnswers + " CORRECT");
                 getCorrectWords();
                 int rand2 = generateRandom();
                 if(getCorrectWords().contains(rand2))
