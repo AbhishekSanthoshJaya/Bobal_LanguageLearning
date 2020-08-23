@@ -2,9 +2,9 @@
     <string name="app_name">capstone_Quasars_Bobal</string>
     <string name="front">FRONT</string>
     <string name="back">BACK</string>
-    <string name="h"><font size="19">E-Mail</font></string>
-    <string name="h1"><font size="19">Password</font></string>
-    <string name="h2"><font size="19">Full Name </font></string>
-    <string name="h3"><font size="19">Confirm Password </font></string>
+    <string name="h"><font size="17">E-Mail</font></string>
+    <string name="h1"><font size="17">Password</font></string>
+    <string name="h2"><font size="17">Full Name </font></string>
+    <string name="h3"><font size="17">Confirm Password </font></string>
 
 </resources>
