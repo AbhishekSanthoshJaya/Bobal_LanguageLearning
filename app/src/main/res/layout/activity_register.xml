@@ -18,7 +18,7 @@
         android:layout_marginTop="52dp"
         android:fontFamily="@font/convergence"
         android:text="Create an Account"
-        android:textColor="#FDFAE4"
+        android:textColor="#FCFADD"
         android:textSize="36sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -27,27 +27,14 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="136dp"
+        android:layout_width="164dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="80dp"
         android:text="Already have an account?"
         android:textColor="#FCFADD"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonsignup" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sign in."
-        android:textColor="#FCFADD"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.141"
-        app:layout_constraintStart_toEndOf="@+id/textView5"
-        tools:layout_editor_absoluteY="677dp" />
 
     <EditText
         android:id="@+id/edittextfullname"
@@ -121,8 +108,25 @@
         android:background="@drawable/rounded_textview"
         android:text="Sign Up"
         android:textColor="#FCFADD"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edittextpassword2" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="63dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="48dp"
+        android:background="@drawable/rounded_textview"
+        android:text="Sign In"
+        android:textColor="#FBFAD5"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonsignup"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
