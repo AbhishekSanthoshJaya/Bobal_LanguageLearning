@@ -61,7 +61,12 @@ public class FlashCardActivity extends AppCompatActivity {
         btnCorrect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getCorrectWords();
                 int rand2 = generateRandom();
+                if(getCorrectWords().contains(rand2))
+                {
+                    rand2 = generateRandom();
+                }
                 findViews();
                 loadAnimations();
                 changeCameraDistance();
@@ -148,11 +153,19 @@ public class FlashCardActivity extends AppCompatActivity {
     }
     public int generateRandom()
     {
-        int max = 4;
+        int max = 9;
         int min = 0;
         Random rand = new Random();
         int randomNum = rand.nextInt((max - min) + 1) + min;
         return randomNum;
+    }
+
+    public ArrayList<Integer> getCorrectWords()
+    {
+        int randNum = generateRandom();
+        ArrayList<Integer> correctIndex = new ArrayList<>();
+        correctIndex.add(randNum);
+        return correctIndex;
     }
 
     public void flipCard() {
