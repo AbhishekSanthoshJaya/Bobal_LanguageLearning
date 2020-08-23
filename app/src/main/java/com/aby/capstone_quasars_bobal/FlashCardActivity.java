@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Random;
 
 public class FlashCardActivity extends AppCompatActivity {
 
@@ -26,7 +27,10 @@ public class FlashCardActivity extends AppCompatActivity {
     private View mCardFrontLayout;
     private View mCardBackLayout;
     TextView txtFront, txtBack;
-
+    String word, meaning;
+    ArrayList<String> wordList = new ArrayList<>();
+    ArrayList<String> meaningList = new ArrayList<>();
+    //HashMap<String, String> wordsMap= new HashMap<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,12 +40,15 @@ public class FlashCardActivity extends AppCompatActivity {
         findViews();
         loadAnimations();
         changeCameraDistance();
-        //loadJSONFromAsset();
         try {
             parseJSON();
         } catch (JSONException e) {
             e.printStackTrace();
         }
+        int randomNumber = generateRandom();
+        txtFront.setText(wordList.get(randomNumber));
+        //txtBack.setText(wordsMap.get(word));
+        txtBack.setText(meaningList.get(randomNumber));
     }
 
     private void changeCameraDistance() {
@@ -94,20 +101,27 @@ public class FlashCardActivity extends AppCompatActivity {
     }
 
     public void parseJSON() throws JSONException {
-        HashMap<String, String> wordsMap= new HashMap<>();
         String jsonStr = loadJSONFromAsset();
         JSONArray jsonarray = new JSONArray(jsonStr);
         for (int i = 0; i < jsonarray.length(); i++) {
             JSONObject jsonobject = jsonarray.getJSONObject(i);
-            String word = jsonobject.getString("word");
-            String meaning = jsonobject.getString("meaning");
-            wordsMap.put(word, meaning);
-            txtFront.setText(word);
-            txtBack.setText(wordsMap.get(word));
-            Log.i("word", word);
-            Log.i("meaning", meaning);
-            Log.i("map", wordsMap.toString());
+             word = jsonobject.getString("word");
+             meaning = jsonobject.getString("meaning");
+             //wordsMap.put(word, meaning);
+             wordList.add(word);
+             meaningList.add(meaning);
+             Log.i("word", word);
+             Log.i("meaning", meaning);
+             //Log.i("map", wordsMap.toString());
         }
+    }
+    public int generateRandom()
+    {
+        int max = 5;
+        int min = 0;
+        Random rand = new Random();
+        int randomNum = rand.nextInt((max - min) + 1) + min;
+        return randomNum;
     }
 }
 
