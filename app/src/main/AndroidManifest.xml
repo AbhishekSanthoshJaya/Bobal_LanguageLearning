@@ -16,12 +16,15 @@
         <activity android:name=".LoginActivity"/>
         <activity android:name=".BottomNavActivity" />
         <activity android:name=".MainActivity" />
-        <activity android:name=".SplashScreenActivity" android:theme="@style/AppTheme.splash">
+        <activity android:name=".FlashCardActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".SplashScreenActivity" android:theme="@style/AppTheme.splash">
+
         </activity>
 
         <meta-data
