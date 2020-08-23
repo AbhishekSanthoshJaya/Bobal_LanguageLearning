@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
         String email, password;
         email = emailTV.getText().toString();
         password = passwordTV.getText().toString();
-        signUpOption = findViewById(R.id.signUpOp);
+        signUpOption = findViewById(R.id.signupop);
 
         signUpOption.setOnClickListener(new View.OnClickListener() {
             @Override
