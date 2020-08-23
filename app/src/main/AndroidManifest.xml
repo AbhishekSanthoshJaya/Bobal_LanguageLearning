@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.aby.capstone_quasars_bobal">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -11,13 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreenActivity"></activity>
-        <activity
-            android:name=".BottomNavActivity"
-            android:label="@string/title_activity_bottom_navigation" />
-        <activity android:name=".MainActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity"/>
+        <activity android:name=".BottomNavActivity" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".SplashScreenActivity" android:theme="@style/AppTheme.splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

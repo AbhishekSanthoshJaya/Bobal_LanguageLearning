@@ -104,7 +104,7 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/signUpOp"
         android:layout_width="61dp"
         android:layout_height="25dp"
         android:background="@drawable/rounded_textview"
