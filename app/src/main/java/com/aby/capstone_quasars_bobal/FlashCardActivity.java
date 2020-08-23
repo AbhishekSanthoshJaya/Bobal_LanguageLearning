@@ -32,6 +32,7 @@ public class FlashCardActivity extends AppCompatActivity {
     String word, meaning;
     ArrayList<String> wordList = new ArrayList<>();
     ArrayList<String> meaningList = new ArrayList<>();
+    ArrayList<String> randomList = new ArrayList<>();
     LinearLayout btnLayout;
     Button btnCorrect, btnWrong;
     //HashMap<String, String> wordsMap= new HashMap<>();
@@ -67,6 +68,15 @@ public class FlashCardActivity extends AppCompatActivity {
                 flipCard();
                 txtFront.setText(wordList.get(rand2));
                 txtBack.setText(meaningList.get(rand2));
+            }
+        });
+        btnWrong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findViews();
+                loadAnimations();
+                changeCameraDistance();
+                flipCard();
             }
         });
     }
