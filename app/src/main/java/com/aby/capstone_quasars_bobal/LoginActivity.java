@@ -95,8 +95,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void initializeUI() {
-        emailTV = findViewById(R.id.email);
-        passwordTV = findViewById(R.id.password);
+        emailTV = findViewById(R.id.regEmail);
+        passwordTV = findViewById(R.id.regPassword);
 
         loginBtn = findViewById(R.id.login);
         progressBar = findViewById(R.id.progressBar);

@@ -77,9 +77,9 @@ public class RegisterActivity extends AppCompatActivity {
     }
 
     private void initializeUI() {
-        emailTV = findViewById(R.id.email);
-        passwordTV = findViewById(R.id.password);
-        regBtn = findViewById(R.id.register);
+        emailTV = findViewById(R.id.regEmail);
+        passwordTV = findViewById(R.id.regPassword);
+        regBtn = findViewById(R.id.buttonsignup);
         progressBar = findViewById(R.id.progressBar);
     }
 }

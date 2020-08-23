@@ -7,8 +7,8 @@
     <string name="h2"><font size="17">Full Name </font></string>
     <string name="h3"><font size="17">Confirm Password </font></string>
     <string name="title_activity_bottom_navigation">MainActivity</string>
-    <string name="title_flashcards">Flash Cards</string>
-    <string name="title_articles">Articles</string>
-    <string name="title_speakingtest">Speaking Test</string>
+    <string name="title_flashcards"><font fgcolor='#F3EABC'>Flash Cards</font></string>
+    <string name="title_articles"><font fgcolor='#F3EABC'>Articles</font></string>
+    <string name="title_speakingtest"><font fgcolor='#F3EABC'>Speaking Test</font></string>
 
 </resources>

@@ -42,32 +42,32 @@
 
     <ImageButton
         android:id="@+id/login"
-        android:layout_width="330dp"
+        android:layout_width="327dp"
         android:layout_height="37dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="180dp"
         android:background="@drawable/rounded_textview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.543"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPassword"
-        app:layout_constraintVertical_bias="0.163"
+        app:layout_constraintVertical_bias="0.277"
         app:srcCompat="@drawable/loginbtn" />
 
     <TextView
         android:id="@+id/signUpOp"
-        android:layout_width="230dp"
-        android:layout_height="29dp"
+        android:layout_width="182dp"
+        android:layout_height="24dp"
         android:layout_marginBottom="80dp"
         android:text="Don't have an account?"
         android:textColor="#F3EABC"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login"
-        app:layout_constraintVertical_bias="0.923" />
+        app:layout_constraintVertical_bias="0.759" />
 
     <EditText
         android:id="@+id/editTextTextEmailAddress"
@@ -79,6 +79,7 @@
         android:gravity="center"
         android:hint="@string/h"
         android:inputType="textEmailAddress"
+        android:textColor="#F3EABC"
         android:textColorHint="#F3EABC"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.523"
@@ -89,15 +90,16 @@
         android:id="@+id/editTextTextPassword"
         android:layout_width="327dp"
         android:layout_height="41dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/rounded_textview"
         android:ems="10"
-        android:hint="@string/h2"
-        android:textColorHint="#F3EABC"
-        android:inputType="textPassword"
         android:gravity="center"
+        android:hint="@string/h1"
+        android:inputType="textPassword"
+        android:textColor="#F3EABC"
+        android:textColorHint="#F3EABC"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.523"
+        app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextEmailAddress" />
 
@@ -111,9 +113,8 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.76"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/login"
-        app:layout_constraintVertical_bias="0.537" />
+        app:layout_constraintVertical_bias="0.6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

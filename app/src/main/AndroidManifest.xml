@@ -15,9 +15,8 @@
             android:name=".BottomNavActivity"
             android:label="@string/title_activity_bottom_navigation"></activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".LoginActivity"></activity>
         <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".FlashCardActivity">
+        <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
