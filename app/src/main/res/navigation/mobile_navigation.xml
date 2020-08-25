@@ -9,17 +9,17 @@
         android:id="@+id/navigation_flashcard"
         android:name="com.aby.capstone_quasars_bobal.ui.home.HomeFragment"
         android:label="@string/title_flashcards"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_flashcard" />
 
     <fragment
         android:id="@+id/navigation_articles"
         android:name="com.aby.capstone_quasars_bobal.ui.dashboard.DashboardFragment"
         android:label="@string/title_articles"
-        tools:layout="@layout/fragment_dashboard" />
+        tools:layout="@layout/fragment_articles" />
 
     <fragment
         android:id="@+id/navigation_speakingtests"
         android:name="com.aby.capstone_quasars_bobal.ui.notifications.NotificationsFragment"
         android:label="@string/title_speakingtest"
-        tools:layout="@layout/fragment_notifications" />
+        tools:layout="@layout/fragment_speaking" />
 </navigation>
