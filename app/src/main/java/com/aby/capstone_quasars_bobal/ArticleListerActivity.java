@@ -124,7 +124,7 @@ public class ArticleListerActivity extends AppCompatActivity {
     }
 
     private void parseArticle(){
-        String url = "http://142.93.156.57:8983/solr/article_search/select?q=entrenched";
+        String url = "http://142.93.156.57:8983/solr/article_search/select?rows=20&q=*:*";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
