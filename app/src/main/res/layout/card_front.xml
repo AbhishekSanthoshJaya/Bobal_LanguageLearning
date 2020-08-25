@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:visibility="visible">
 
     <ImageView
         android:id="@+id/imageView"
@@ -50,14 +51,20 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="CORRECT" />
+            android:background="@drawable/rectangle"
+            android:shadowColor="#F6F0F0"
+            android:text="CORRECT"
+            android:textColor="#020202" />
 
         <Button
             android:id="@+id/btnWrong"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="WRONG" />
+            android:background="@drawable/rectangle2"
+            android:shadowColor="#FFFFFF"
+            android:text="WRONG"
+            android:textColor="#000000" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
