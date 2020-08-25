@@ -5,6 +5,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,7 +28,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ArticleListerActivity extends AppCompatActivity {
+public class ArticleListerActivity extends AppCompatActivity implements ArticleAdapter.OnArticleListener{
 
 
     @BindView(R.id.articleRecyclerView)
@@ -52,7 +53,7 @@ public class ArticleListerActivity extends AppCompatActivity {
         requestQueue = Volley.newRequestQueue(this);
 
 
-        articleAdapter = new ArticleAdapter(ArticleListerActivity.this,articles, requestQueue);
+        articleAdapter = new ArticleAdapter(ArticleListerActivity.this,articles, requestQueue,ArticleListerActivity.this);
         recyclerView.setAdapter(articleAdapter);
 
         parseArticle();
@@ -97,7 +98,7 @@ public class ArticleListerActivity extends AppCompatActivity {
                                         articles.add(new Article(imageUrl,title,sourceUrl));
                                     }
 
-                                    articleAdapter = new ArticleAdapter(ArticleListerActivity.this,articles, requestQueue);
+                                    articleAdapter = new ArticleAdapter(ArticleListerActivity.this,articles, requestQueue, ArticleListerActivity.this);
                                     recyclerView.setAdapter(articleAdapter);
 
                                 } catch (JSONException e) {
@@ -144,7 +145,7 @@ public class ArticleListerActivity extends AppCompatActivity {
                                 articles.add(new Article(imageUrl,title,sourceUrl));
                             }
 
-                            articleAdapter = new ArticleAdapter(ArticleListerActivity.this,articles, requestQueue);
+                            articleAdapter = new ArticleAdapter(ArticleListerActivity.this,articles, requestQueue, ArticleListerActivity.this);
                             recyclerView.setAdapter(articleAdapter);
 
                         } catch (JSONException e) {
@@ -162,5 +163,11 @@ public class ArticleListerActivity extends AppCompatActivity {
                 });
 
         requestQueue.add(jsonObjectRequest);
+    }
+
+    @Override
+    public void onArticleClick(int position) {
+        Intent intent = new Intent(this, ArticleDetailActivity.class);
+        startActivity(intent);
     }
 }

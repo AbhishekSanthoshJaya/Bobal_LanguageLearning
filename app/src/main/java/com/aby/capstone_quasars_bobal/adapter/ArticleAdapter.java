@@ -38,13 +38,14 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
     private ArrayList<Article> articles;
     private ArrayList<Article> articlesAll;
     private RequestQueue requestQueue;
+    private OnArticleListener onArticleListener;
 
-
-    public ArticleAdapter(Context context, ArrayList<Article> articles, RequestQueue requestQueue){
+    public ArticleAdapter(Context context, ArrayList<Article> articles, RequestQueue requestQueue, OnArticleListener onArticleListener){
         this.context = context;
         this.articles = articles;
         this.articlesAll = new ArrayList<>(articles);
         this.requestQueue = requestQueue;
+        this.onArticleListener = onArticleListener;
     }
 
     @NonNull
@@ -52,7 +53,7 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
     public ArticleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View v = LayoutInflater.from(context).inflate(R.layout.article_item, parent, false);
-        return new ArticleViewHolder(v);
+        return new ArticleViewHolder(v, onArticleListener);
     }
 
     @Override
@@ -73,45 +74,6 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
         return filter;
     }
 
-    private void parseArticle(){
-        String url = "http://142.93.156.57:8983/solr/article_search/select?q=entrenched";
-
-        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
-                        try {
-                            JSONObject jsonObject = response.getJSONObject("response");
-
-                            JSONArray jsonArray = jsonObject.getJSONArray("docs");
-
-                            for(int i =0 ; i<jsonArray.length(); i++){
-                                JSONObject doc = jsonArray.getJSONObject(i);
-                                String title = doc.getString("title");
-                                String imageUrl = doc.getString("url_to_image");
-                                String sourceUrl = doc.getString("url");
-
-                                articles.add(new Article(imageUrl,title,sourceUrl));
-                            }
-
-
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
-                    }
-                },
-
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        error.printStackTrace();
-                    }
-                });
-
-        requestQueue.add(jsonObjectRequest);
-    }
 
 
 
@@ -181,14 +143,28 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
         }
     };
 
-    public class ArticleViewHolder extends RecyclerView.ViewHolder{
+    public class ArticleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public ImageView imageView;
         public TextView textViewTitle;
-        public ArticleViewHolder(@NonNull View itemView) {
+        OnArticleListener onArticleListener;
+        public ArticleViewHolder(@NonNull View itemView, OnArticleListener onArticleListener) {
             super(itemView);
+            this.onArticleListener = onArticleListener;
             imageView = itemView.findViewById(R.id.article_image_view);
             textViewTitle  = itemView.findViewById(R.id.article_titile_text_view);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            onArticleListener.onArticleClick(getAdapterPosition());
         }
     }
+
+    public interface OnArticleListener{
+        void onArticleClick(int position);
+    }
+
+
 }
