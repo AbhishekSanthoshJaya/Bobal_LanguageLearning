@@ -168,6 +168,8 @@ public class ArticleListerActivity extends AppCompatActivity implements ArticleA
     @Override
     public void onArticleClick(int position) {
         Intent intent = new Intent(this, ArticleDetailActivity.class);
+
+        intent.putExtra("url",articles.get(position).getSourceUrl());
         startActivity(intent);
     }
 }
