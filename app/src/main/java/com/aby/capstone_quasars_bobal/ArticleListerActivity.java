@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class ArticleListerActivity extends AppCompatActivity implements ArticleAdapter.OnArticleListener{
+public class             ArticleListerActivity extends AppCompatActivity implements ArticleAdapter.OnArticleListener{
 
 
     @BindView(R.id.articleRecyclerView)

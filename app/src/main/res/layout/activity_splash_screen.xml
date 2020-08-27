@@ -19,10 +19,11 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="236dp"
-        android:layout_height="20dp"
+        android:layout_width="266dp"
+        android:layout_height="25dp"
         android:text="The bridge between learning and fun"
         android:textColor="#FCFADD"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

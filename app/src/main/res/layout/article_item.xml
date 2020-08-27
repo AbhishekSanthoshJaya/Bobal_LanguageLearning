@@ -11,13 +11,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp">
-        
+
         <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
             android:id="@+id/article_image_view"
-            android:src="@mipmap/ic_launcher">
-            
+            android:layout_width="360dp"
+            android:layout_height="283dp"
+            android:background="@drawable/logonew"
+            android:src="@drawable/logonew">
+
         </ImageView>
         
         <TextView

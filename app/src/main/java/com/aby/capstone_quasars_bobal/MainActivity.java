@@ -1,6 +1,7 @@
 package com.aby.capstone_quasars_bobal;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.ActivityOptionsCompat;
 
 import android.content.Intent;
@@ -18,14 +19,14 @@ import static androidx.core.view.ViewCompat.getTransitionName;
 public class MainActivity extends AppCompatActivity {
 
 
-    @BindView(R.id.button_flashcard)
-    Button buttonFlashCard;
+    @BindView(R.id.cv_flash_card)
+    CardView buttonFlashCard;
 
-    @BindView(R.id.button_articles)
-    Button buttonArticles;
+    @BindView(R.id.cv_articles)
+    CardView buttonArticles;
 
-    @BindView(R.id.button_speaking)
-    Button buttonSpeaking;
+    @BindView(R.id.cv_speakingtest)
+    CardView buttonSpeaking;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,17 +36,23 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    @OnClick(R.id.button_flashcard)
+    @OnClick(R.id.cv_flash_card)
     public void setButtonFlashCard(){
         Intent intent = new Intent(MainActivity.this,FlashCardActivity.class);
         startActivity(intent);
     }
 
-    @OnClick(R.id.button_articles)
+    @OnClick(R.id.cv_articles)
     public void setButtonArticles(){
         Intent intent = new Intent(MainActivity.this,ArticleListerActivity.class);
         startActivity(intent);
     }
 
+//    @OnClick(R.id.cv_speakingtest)
+//    public void setButtonSpeaking()
+//    {
+//        Intent intent = new Intent(MainActivity.this,SpeakingTestActivity)
+//        startActivity(intent);
+//    }
 
 }

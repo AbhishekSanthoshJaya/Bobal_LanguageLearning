@@ -19,15 +19,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.416" /><![CDATA[
+        app:layout_constraintVertical_bias="0.416" />
+    <![CDATA[
 " />
-
-
-
-
-
-
-    ]]>
+]]>
 
     <ImageView
         android:id="@+id/imageView2"
@@ -62,7 +57,7 @@
         android:layout_marginTop="32dp"
         android:background="@drawable/rounded_textview"
         android:ems="10"
-        android:gravity="center"
+        android:gravity="left|center"
         android:hint="@string/h"
         android:inputType="textEmailAddress"
         android:textColor="#F3EABC"
@@ -79,7 +74,7 @@
         android:layout_marginTop="16dp"
         android:background="@drawable/rounded_textview"
         android:ems="10"
-        android:gravity="center"
+        android:gravity="left|center"
         android:hint="@string/h1"
         android:inputType="textPassword"
         android:textColor="#F3EABC"
