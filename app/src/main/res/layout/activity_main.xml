@@ -37,9 +37,10 @@
 
                 <TextView
                     android:layout_width="372dp"
-                    android:layout_height="41dp"
+                    android:layout_height="match_parent"
                     android:background="@color/ylw"
                     android:fontFamily="@font/gravitas_one"
+                    android:icon="@drawable/ic_baseline_library_books_24"
                     android:text="Flash Cards"
                     android:textAlignment="center"
                     android:textColor="#000000"
@@ -75,6 +76,7 @@
                     android:layout_height="41dp"
                     android:fontFamily="@font/gravitas_one"
                     android:text="Articles"
+                    android:icon="@drawable/ic_baseline_menu_book_24"
                     android:background="@color/ylw"
                     android:textAlignment="center"
                     android:textColor="#000000"
@@ -111,6 +113,7 @@
                     android:layout_height="41dp"
                     android:fontFamily="@font/gravitas_one"
                     android:text="Speaking Test"
+                    android:icon="@drawable/ic_baseline_record_voice_over_24"
                     android:textAlignment="center"
                     android:textColor="#000000"
                     android:textSize="20sp"
