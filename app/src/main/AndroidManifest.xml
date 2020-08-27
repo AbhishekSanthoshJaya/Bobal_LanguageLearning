@@ -13,7 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ArticleDetailActivity"></activity>
+        <activity android:name=".SpeakingTestActivity"></activity>
+        <activity android:name=".ArticleDetailActivity" />
         <activity android:name=".ArticleListerActivity" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".LoginActivity" />
