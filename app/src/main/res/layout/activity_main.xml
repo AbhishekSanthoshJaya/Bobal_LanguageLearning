@@ -25,7 +25,7 @@
             android:layout_gravity="fill"
             android:layout_margin="25dp"
             app:cardBackgroundColor="@color/ylw"
-            app:cardCornerRadius="50dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="25dp">
 
             <LinearLayout
@@ -39,12 +39,12 @@
                     android:layout_width="372dp"
                     android:layout_height="match_parent"
                     android:background="@color/ylw"
-                    android:fontFamily="@font/gravitas_one"
+                    android:fontFamily="@font/michroma"
                     android:icon="@drawable/ic_baseline_library_books_24"
                     android:text="Flash Cards"
                     android:textAlignment="center"
                     android:textColor="#000000"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -61,7 +61,7 @@
             android:layout_gravity="fill"
             android:layout_margin="25dp"
             app:cardBackgroundColor="@color/ylw"
-            app:cardCornerRadius="50dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="25dp">
 
             <LinearLayout
@@ -74,13 +74,13 @@
                 <TextView
                     android:layout_width="342dp"
                     android:layout_height="41dp"
-                    android:fontFamily="@font/gravitas_one"
-                    android:text="Articles"
-                    android:icon="@drawable/ic_baseline_menu_book_24"
                     android:background="@color/ylw"
+                    android:fontFamily="@font/michroma"
+                    android:icon="@drawable/ic_baseline_menu_book_24"
+                    android:text="Articles"
                     android:textAlignment="center"
                     android:textColor="#000000"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
@@ -97,7 +97,7 @@
             android:layout_gravity="fill"
             android:layout_margin="25dp"
             app:cardBackgroundColor="@color/ylw"
-            app:cardCornerRadius="50dp"
+            app:cardCornerRadius="20dp"
             app:cardElevation="25dp">
 
             <LinearLayout
@@ -108,15 +108,15 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:background="@color/ylw"
                     android:layout_width="342dp"
                     android:layout_height="41dp"
-                    android:fontFamily="@font/gravitas_one"
-                    android:text="Speaking Test"
+                    android:background="@color/ylw"
+                    android:fontFamily="@font/michroma"
                     android:icon="@drawable/ic_baseline_record_voice_over_24"
+                    android:text="Speaking Test"
                     android:textAlignment="center"
                     android:textColor="#000000"
-                    android:textSize="20sp"
+                    android:textSize="24sp"
                     android:textStyle="bold" />
             </LinearLayout>
 
