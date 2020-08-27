@@ -160,7 +160,7 @@ public class FlashCardActivity extends AppCompatActivity {
     }
     public int generateRandom()
     {
-        int max = 9;
+        int max = 299;
         int min = 0;
         Random rand = new Random();
         int randomNum = rand.nextInt((max - min) + 1) + min;
