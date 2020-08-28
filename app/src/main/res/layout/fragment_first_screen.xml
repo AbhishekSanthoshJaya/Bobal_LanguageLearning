@@ -34,7 +34,7 @@
         android:gravity="center"
         android:text="Let's go through all the features of Bobal."
         android:textColor="@color/ylw"
-        android:textSize="15sp"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

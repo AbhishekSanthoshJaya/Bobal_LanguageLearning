@@ -9,9 +9,10 @@
 
     <TextView
         android:id="@+id/title2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="453dp"
+        android:layout_height="55dp"
         android:fontFamily="@font/alegreya_sc"
+        android:gravity="center"
         android:text="Mneumonic Cards"
         android:textColor="@color/ylw"
         android:textSize="30sp"
@@ -25,14 +26,14 @@
 
     <TextView
         android:id="@+id/description2"
-        android:layout_width="513dp"
-        android:layout_height="144dp"
+        android:layout_width="508dp"
+        android:layout_height="137dp"
         android:layout_marginStart="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
         android:fontFamily="@font/convergence"
         android:gravity="center"
-        android:text="Flashcards will be created with fun animations which will show a topic and will flip and show all important information about it. This type of retention training is a commonly seen feature  on a lot of apps but is essential in giving users a way to improve their vocabulary. "
+        android:text="Flashcards will show you a relevant word and will flip when touched to show all the important meanings of the respective word. This will help you to memorize the words with their meanings quickly which will further help you to improve your vocabulary."
         android:textColor="@color/ylw"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
