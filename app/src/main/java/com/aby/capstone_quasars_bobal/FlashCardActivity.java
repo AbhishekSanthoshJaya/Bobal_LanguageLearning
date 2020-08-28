@@ -60,7 +60,7 @@ public class FlashCardActivity extends AppCompatActivity {
         }
         final int randomNumber = generateRandom();
         txtFront.setText(wordList.get(randomNumber));
-        txtBack.setText(wordList.get(randomNumber)+"("+(posList.get(randomNumber))+")" + " : " + meaningList.get(randomNumber));
+        txtBack.setText(wordList.get(randomNumber)+"("+(posList.get(randomNumber))+")" + ": " + meaningList.get(randomNumber));
         btnLayout = findViewById(R.id.btnLayout);
 
         btnCorrect.setOnClickListener(new View.OnClickListener() {
