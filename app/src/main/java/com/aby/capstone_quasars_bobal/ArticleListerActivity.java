@@ -42,6 +42,8 @@ public class             ArticleListerActivity extends AppCompatActivity impleme
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_lister);
+        getSupportActionBar().setTitle("Articles");
+
 
         ButterKnife.bind(this);
 

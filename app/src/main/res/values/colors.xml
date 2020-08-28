@@ -8,4 +8,6 @@
     <color name="white">#ffff</color>
     <color name="bobalgreen">#6be400</color>
     <color name="ylw">#F3EABC</color>
+    <color name="white_off">#fefefa</color>
+
 </resources>
