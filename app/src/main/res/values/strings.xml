@@ -10,5 +10,7 @@
     <string name="title_flashcards"><font fgcolor='#F3EABC'>Flash Cards</font></string>
     <string name="title_articles"><font fgcolor='#F3EABC'>Articles</font></string>
     <string name="title_speakingtest"><font fgcolor='#F3EABC'>Speaking Test</font></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

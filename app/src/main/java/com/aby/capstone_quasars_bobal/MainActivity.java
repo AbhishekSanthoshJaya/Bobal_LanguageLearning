@@ -48,11 +48,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-//    @OnClick(R.id.cv_speakingtest)
-//    public void setButtonSpeaking()
-//    {
-//        Intent intent = new Intent(MainActivity.this,SpeakingTestActivity)
-//        startActivity(intent);
-//    }
+    @OnClick(R.id.cv_speakingtest)
+    public void setButtonSpeaking()
+    {
+        Intent intent = new Intent(MainActivity.this,SpeakingTestActivity.class);
+        startActivity(intent);
+    }
 
 }
