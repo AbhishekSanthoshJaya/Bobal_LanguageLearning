@@ -113,7 +113,13 @@ public class TestFragment extends Fragment implements View.OnClickListener {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.test_audio_lst_button:
-                navController.navigate(R.id.action_testFragment_to_testAudioListerFragment);
+                if(isRecording){
+                    navController.navigate(R.id.action_testFragment_to_testAudioListerFragment);
+                    isRecording = false;
+                }
+                else{
+                    navController.navigate(R.id.action_testFragment_to_testAudioListerFragment);
+                }
                 break;
 
 
@@ -186,5 +192,14 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         }
         ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.RECORD_AUDIO},10002);
         return false;
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        if(isRecording){
+            stopRecording();
+        }
+
     }
 }
