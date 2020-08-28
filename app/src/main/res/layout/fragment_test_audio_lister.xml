@@ -3,17 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="#E5E5E5"
     tools:context=".TestAudioListerFragment">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/audio_list_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/audio_list_view"
         android:layout_marginBottom="60dp"
 
         />
 
-    <include layout="@layout/player_sheet"/>
+    <include layout="@layout/player_sheet" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

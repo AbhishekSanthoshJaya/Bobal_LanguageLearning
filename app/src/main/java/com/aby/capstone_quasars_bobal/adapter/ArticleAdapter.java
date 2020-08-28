@@ -1,6 +1,7 @@
 package com.aby.capstone_quasars_bobal.adapter;
 
 import android.content.Context;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -61,6 +62,10 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
 
         Article currentArticle = articles.get(position);
         holder.textViewTitle.setText(currentArticle.getTitle());
+        holder.sourcename.setText(currentArticle.getSource_name());
+        holder.publishedAt.setText(currentArticle.getPublishedat());
+        holder.highlight.setText(Html.fromHtml(currentArticle.getHighlighting()));
+
         Picasso.get().load(currentArticle.getImageUrl()).fit().centerInside().into(holder.imageView);
     }
 
@@ -146,13 +151,16 @@ public class ArticleAdapter extends RecyclerView.Adapter<ArticleAdapter.ArticleV
     public class ArticleViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public ImageView imageView;
-        public TextView textViewTitle;
+        public TextView textViewTitle, sourcename, publishedAt, highlight;
         OnArticleListener onArticleListener;
         public ArticleViewHolder(@NonNull View itemView, OnArticleListener onArticleListener) {
             super(itemView);
             this.onArticleListener = onArticleListener;
             imageView = itemView.findViewById(R.id.article_image_view);
             textViewTitle  = itemView.findViewById(R.id.article_titile_text_view);
+            sourcename = itemView.findViewById(R.id.source_name_textView);
+            publishedAt = itemView.findViewById(R.id.published_at_textView);
+            highlight = itemView.findViewById(R.id.article_highlight);
             itemView.setOnClickListener(this);
         }
 

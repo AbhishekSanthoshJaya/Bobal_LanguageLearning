@@ -24,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -42,6 +43,8 @@ public class             ArticleListerActivity extends AppCompatActivity impleme
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_lister);
+        getSupportActionBar().setTitle("Articles");
+
 
         ButterKnife.bind(this);
 
@@ -77,8 +80,9 @@ public class             ArticleListerActivity extends AppCompatActivity impleme
                 if(newText.isEmpty()){
                     newText= "*:*";
                 }
-                String url = "http://142.93.156.57:8983/solr/article_search/select?rows=20&q="+newText;
+                String url = "http://142.93.156.57:8983/solr/article_search/select?rows=20&hl=true&hl=true&hl.simple.pre=<b><em>&&hl.simple.post=</em></b>&q="+newText;
 
+                String finalNewText = newText;
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                         new Response.Listener<JSONObject>() {
                             @Override
@@ -89,13 +93,38 @@ public class             ArticleListerActivity extends AppCompatActivity impleme
                                     JSONArray jsonArray = jsonObject.getJSONArray("docs");
 
                                     articles.clear();
+
+
+                                    JSONObject hl = response.getJSONObject("highlighting");
+
+                                    HashMap<String, String> highlightMap = new HashMap<String,String>();
+
+
                                     for(int i =0 ; i<jsonArray.length(); i++){
                                         JSONObject doc = jsonArray.getJSONObject(i);
                                         String title = doc.getString("title");
                                         String imageUrl = doc.getString("url_to_image");
                                         String sourceUrl = doc.getString("url");
+                                        String source_name = doc.getString("source_name");
+                                        String author = doc.getString("author");
+                                        String publishedat = doc.getString("publishedat");
+                                        String key = doc.getString("key");
 
-                                        articles.add(new Article(imageUrl,title,sourceUrl));
+                                        String finalHl =  "";
+                                        if(!finalNewText.equals("*:*")){
+                                            JSONObject key_map = hl.getJSONObject(key);
+                                            JSONArray hls = key_map.getJSONArray("web_text");
+                                            finalHl = hls.getString(0);
+                                        }
+                                        else{
+                                            finalHl = "";
+                                        }
+
+
+
+
+                                        articles.add(new Article(imageUrl,title,sourceUrl,source_name,
+                                                author,publishedat,finalHl));
                                     }
 
                                     articleAdapter = new ArticleAdapter(ArticleListerActivity.this,articles, requestQueue, ArticleListerActivity.this);
@@ -136,13 +165,25 @@ public class             ArticleListerActivity extends AppCompatActivity impleme
 
                             JSONArray jsonArray = jsonObject.getJSONArray("docs");
 
+
+
+
                             for(int i =0 ; i<jsonArray.length(); i++){
                                 JSONObject doc = jsonArray.getJSONObject(i);
                                 String title = doc.getString("title");
                                 String imageUrl = doc.getString("url_to_image");
                                 String sourceUrl = doc.getString("url");
+                                String source_name = doc.getString("source_name");
+                                String author = doc.getString("author");
+                                String publishedat = doc.getString("publishedat");
+                                String key = doc.getString("key");
 
-                                articles.add(new Article(imageUrl,title,sourceUrl));
+                                String finalHl = "";
+
+
+
+                                articles.add(new Article(imageUrl,title,sourceUrl,source_name,
+                                        author,publishedat,finalHl));
                             }
 
                             articleAdapter = new ArticleAdapter(ArticleListerActivity.this,articles, requestQueue, ArticleListerActivity.this);
