@@ -22,6 +22,8 @@ public class ArticleDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_detail);
 
+        getSupportActionBar().hide();
+
         ButterKnife.bind(this);
 
         Intent intent = getIntent();

@@ -45,6 +45,8 @@ public class FlashCardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_flashcard);
+        getSupportActionBar().hide();
+
         txtFront = findViewById(R.id.txtFront);
         txtBack = findViewById(R.id.txtBack);
         btnCorrect = findViewById(R.id.btnCorrect);
