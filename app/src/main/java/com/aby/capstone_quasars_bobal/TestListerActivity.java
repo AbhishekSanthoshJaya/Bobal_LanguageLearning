@@ -32,6 +32,8 @@ public class TestListerActivity extends AppCompatActivity implements MainViewInt
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_lister);
+        getSupportActionBar().hide();
+
 
         ButterKnife.bind(this);
 

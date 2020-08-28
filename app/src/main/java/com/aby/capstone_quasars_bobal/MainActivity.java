@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        getSupportActionBar().hide();
 
         ArrayList<String> qs1 = new ArrayList<String>();
         qs1.add("q1");

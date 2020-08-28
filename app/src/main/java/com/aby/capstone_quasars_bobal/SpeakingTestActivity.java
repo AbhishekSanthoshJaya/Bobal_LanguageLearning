@@ -10,5 +10,7 @@ public class SpeakingTestActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_speaking_test);
+        getSupportActionBar().hide();
+
     }
 }
