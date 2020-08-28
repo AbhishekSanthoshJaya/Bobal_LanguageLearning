@@ -2,7 +2,8 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph">
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/testFragment">
 
     <fragment
         android:id="@+id/testFragment"
@@ -22,4 +23,5 @@
         android:name="com.aby.capstone_quasars_bobal.TestAudioListerFragment"
         android:label="fragment_test_audio_lister"
         tools:layout="@layout/fragment_test_audio_lister" />
+
 </navigation>
