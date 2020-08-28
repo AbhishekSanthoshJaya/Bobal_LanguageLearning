@@ -15,7 +15,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/michroma"
         android:shadowColor="#555252"
-        android:text="RIGHT"
+        android:text="0 RIGHT"
         android:textColor="#000000"
         android:textSize="20sp" />
 
@@ -27,7 +27,7 @@
         android:layout_marginTop="10dp"
         android:fontFamily="@font/michroma"
         android:shadowColor="#555252"
-        android:text="WRONG"
+        android:text="0 WRONG"
         android:textColor="#000000"
         android:textSize="20sp" />
 
