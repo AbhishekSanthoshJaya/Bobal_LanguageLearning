@@ -7,16 +7,29 @@
     android:onClick="flipCard"
     tools:context=".FlashCardActivity">
 
-
     <TextView
         android:id="@+id/txtScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/michroma"
         android:shadowColor="#555252"
-        android:text="YOUR SCORE"
+        android:text="RIGHT"
         android:textColor="#000000"
-        android:textSize="22sp" />
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/txtScore2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="180dp"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/michroma"
+        android:shadowColor="#555252"
+        android:text="WRONG"
+        android:textColor="#000000"
+        android:textSize="20sp" />
 
     <FrameLayout
         android:id="@+id/card_back"

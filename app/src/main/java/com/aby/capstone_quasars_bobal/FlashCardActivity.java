@@ -30,16 +30,17 @@ public class FlashCardActivity extends AppCompatActivity {
     private View mCardFrontLayout;
     private View mCardBackLayout;
     TextView txtFront, txtBack;
-    String word, meaning;
-    int correctAnswers = 0;
+    String word, meaning, pos;
+    int correctAnswers = 0, wrongAnswers = 0;
 
     ArrayList<String> wordList = new ArrayList<>();
     ArrayList<String> meaningList = new ArrayList<>();
+    ArrayList<String> posList = new ArrayList<>();
     ArrayList<String> randomList = new ArrayList<>();
     LinearLayout btnLayout;
     Button btnCorrect, btnWrong;
-    TextView txtScore;
-    //HashMap<String, String> wordsMap= new HashMap<>();
+    TextView txtScore, txtScore2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +50,7 @@ public class FlashCardActivity extends AppCompatActivity {
         btnCorrect = findViewById(R.id.btnCorrect);
         btnWrong = findViewById(R.id.btnWrong);
         txtScore = findViewById(R.id.txtScore);
+        txtScore2 = findViewById(R.id.txtScore2);
         findViews();
         loadAnimations();
         changeCameraDistance();
@@ -59,15 +61,14 @@ public class FlashCardActivity extends AppCompatActivity {
         }
         final int randomNumber = generateRandom();
         txtFront.setText(wordList.get(randomNumber));
-        //txtBack.setText(wordsMap.get(word));
-        txtBack.setText(meaningList.get(randomNumber));
+        txtBack.setText(wordList.get(randomNumber)+"("+(posList.get(randomNumber))+")" + ": " + meaningList.get(randomNumber));
         btnLayout = findViewById(R.id.btnLayout);
 
         btnCorrect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 correctAnswers++;
-                txtScore.setText(correctAnswers + " CORRECT");
+                txtScore.setText(correctAnswers + " RIGHT");
                 getCorrectWords();
                 int rand2 = generateRandom();
                 if(getCorrectWords().contains(rand2))
@@ -79,16 +80,19 @@ public class FlashCardActivity extends AppCompatActivity {
                 changeCameraDistance();
                 flipCard();
                 txtFront.setText(wordList.get(rand2));
-                txtBack.setText(meaningList.get(rand2));
+               // txtBack.setText(meaningList.get(rand2));
+                txtBack.setText(wordList.get(rand2)+"("+(posList.get(rand2))+")" + " : " + meaningList.get(rand2));
             }
         });
         btnWrong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                wrongAnswers++;
                 findViews();
                 loadAnimations();
                 changeCameraDistance();
                 flipCard();
+                txtScore2.setText(wrongAnswers + " WRONG");
             }
         });
     }
@@ -150,9 +154,11 @@ public class FlashCardActivity extends AppCompatActivity {
             JSONObject jsonobject = jsonarray.getJSONObject(i);
              word = jsonobject.getString("word");
              meaning = jsonobject.getString("meaning");
+             pos = jsonobject.getString("pos");
              //wordsMap.put(word, meaning);
              wordList.add(word);
              meaningList.add(meaning);
+             posList.add(pos);
              Log.i("word", word);
              Log.i("meaning", meaning);
              //Log.i("map", wordsMap.toString());
@@ -160,7 +166,7 @@ public class FlashCardActivity extends AppCompatActivity {
     }
     public int generateRandom()
     {
-        int max = 9;
+        int max = 299;
         int min = 0;
         Random rand = new Random();
         int randomNum = rand.nextInt((max - min) + 1) + min;

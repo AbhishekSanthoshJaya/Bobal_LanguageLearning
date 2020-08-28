@@ -3,6 +3,5 @@
     <array name="preloaded_fonts" translatable="false">
         <item>@font/convergence</item>
         <item>@font/gravitas_one</item>
-        <item>@font/michroma</item>
     </array>
 </resources>
