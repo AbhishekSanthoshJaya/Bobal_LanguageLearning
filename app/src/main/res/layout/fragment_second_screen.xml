@@ -9,8 +9,8 @@
 
     <TextView
         android:id="@+id/title2"
-        android:layout_width="453dp"
-        android:layout_height="55dp"
+        android:layout_width="417dp"
+        android:layout_height="45dp"
         android:fontFamily="@font/alegreya_sc"
         android:gravity="center"
         android:text="Mneumonic Cards"
