@@ -48,17 +48,17 @@ public class MainActivity extends AppCompatActivity implements MainViewInterface
         LocalCacheManager.getInstance(this).addTests(this,new SpeakingTest('1',"ttestt1",qs1));
 
         ArrayList<String> qs2 = new ArrayList<String>();
-        qs1.add("q1");
-        qs1.add("q2");
-        qs1.add("q3");
-        qs1.add("q4");
+        qs2.add("q1");
+        qs2.add("q2");
+        qs2.add("q3");
+        qs2.add("q4");
         LocalCacheManager.getInstance(this).addTests(this,new SpeakingTest('2',"Test2",qs2));
 
         ArrayList<String> qs3 = new ArrayList<String>();
-        qs1.add("q1");
-        qs1.add("q2");
-        qs1.add("q3");
-        qs1.add("q4");
+        qs3.add("q1");
+        qs3.add("q2");
+        qs3.add("q3");
+        qs3.add("q4");
         LocalCacheManager.getInstance(this).addTests(this,new SpeakingTest('3',"Test3",qs3));
 
 
