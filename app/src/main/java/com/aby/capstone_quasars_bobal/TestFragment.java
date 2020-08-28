@@ -1,6 +1,7 @@
 package com.aby.capstone_quasars_bobal;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -19,6 +20,8 @@ import android.view.ViewGroup;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import com.aby.capstone_quasars_bobal.database.SpeakingTest;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -41,10 +44,11 @@ public class TestFragment extends Fragment implements View.OnClickListener {
     private ImageButton lstBtn;
     private ImageButton  recordBtn;
 
+
     private boolean isRecording = false;
     private MediaRecorder mediaRecorder;
     private Chronometer chronometer;
-    private TextView directionText;
+    private TextView directionText, questionText;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -107,6 +111,11 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         recordBtn.setOnClickListener(this);
 
         lstBtn.setOnClickListener(this);
+
+        questionText = view.findViewById(R.id.question_text_view);
+        Intent intent= getActivity().getIntent();
+        SpeakingTest speakingTest = (SpeakingTest) intent.getSerializableExtra("test");
+        questionText.setText(speakingTest.getQuestions().get(0).toString());
     }
 
     @Override
