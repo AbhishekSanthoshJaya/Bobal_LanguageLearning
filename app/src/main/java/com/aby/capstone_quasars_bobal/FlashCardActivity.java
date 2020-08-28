@@ -31,7 +31,7 @@ public class FlashCardActivity extends AppCompatActivity {
     private View mCardBackLayout;
     TextView txtFront, txtBack;
     String word, meaning, pos;
-    int correctAnswers = 0;
+    int correctAnswers = 0, wrongAnswers = 0;
 
     ArrayList<String> wordList = new ArrayList<>();
     ArrayList<String> meaningList = new ArrayList<>();
@@ -39,7 +39,7 @@ public class FlashCardActivity extends AppCompatActivity {
     ArrayList<String> randomList = new ArrayList<>();
     LinearLayout btnLayout;
     Button btnCorrect, btnWrong;
-    TextView txtScore;
+    TextView txtScore, txtScore2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +50,7 @@ public class FlashCardActivity extends AppCompatActivity {
         btnCorrect = findViewById(R.id.btnCorrect);
         btnWrong = findViewById(R.id.btnWrong);
         txtScore = findViewById(R.id.txtScore);
+        txtScore2 = findViewById(R.id.txtScore2);
         findViews();
         loadAnimations();
         changeCameraDistance();
@@ -67,7 +68,7 @@ public class FlashCardActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 correctAnswers++;
-                txtScore.setText(correctAnswers + " CORRECT");
+                txtScore.setText(correctAnswers + " RIGHT");
                 getCorrectWords();
                 int rand2 = generateRandom();
                 if(getCorrectWords().contains(rand2))
@@ -86,10 +87,12 @@ public class FlashCardActivity extends AppCompatActivity {
         btnWrong.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                wrongAnswers++;
                 findViews();
                 loadAnimations();
                 changeCameraDistance();
                 flipCard();
+                txtScore2.setText(wrongAnswers + " WRONG");
             }
         });
     }
