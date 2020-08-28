@@ -51,7 +51,10 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.cv_speakingtest)
     public void setButtonSpeaking()
     {
-        Intent intent = new Intent(MainActivity.this,SpeakingTestActivity.class);
+//        Intent intent = new Intent(MainActivity.this,SpeakingTestActivity.class);
+//        startActivity(intent);
+
+        Intent intent = new Intent(MainActivity.this,TestListerActivity.class);
         startActivity(intent);
     }
 
