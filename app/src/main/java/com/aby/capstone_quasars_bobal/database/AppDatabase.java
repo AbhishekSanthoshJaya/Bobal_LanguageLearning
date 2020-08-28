@@ -11,7 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import java.util.concurrent.Executors;
 
-@Database(entities = {SpeakingTest.class},version = 1)
+@Database(entities = {SpeakingTest.class, TestTaken.class},version = 1)
 @TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
 
@@ -19,6 +19,7 @@ public abstract class AppDatabase extends RoomDatabase {
 
     public abstract SpeakingTestDoa speakingTestDoa();
 
+    public abstract TestTakenDoa testTakenDoa ();
 
     public static AppDatabase getAppDatabase(Context context) {
         if (INSTANCE == null) {

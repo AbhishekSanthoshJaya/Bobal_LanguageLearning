@@ -8,6 +8,7 @@ import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
 import com.aby.capstone_quasars_bobal.interfaces.MainViewInterface;
+import com.aby.capstone_quasars_bobal.interfaces.TestTakenInterface;
 
 import java.util.List;
 import java.util.concurrent.Executors;
@@ -46,6 +47,32 @@ public class LocalCacheManager {
                     @Override
                     public void accept(List<SpeakingTest> speakingTests) throws Exception {
                         mainViewInterface.onTestLoaded(speakingTests);
+                    }
+                });
+    }
+
+    public void getTestTakens(final TestTakenInterface mainViewInterface) {
+        db.testTakenDoa()
+                .getAll()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<List<TestTaken>>() {
+                    @Override
+                    public void accept(List<TestTaken> testTakens) throws Exception {
+                        mainViewInterface.onTestTakenLoaded(testTakens);
+                    }
+                });
+    }
+
+    public void getTestTakensLatest(final TestTakenInterface mainViewInterface) {
+        db.testTakenDoa()
+                .getLatestTestTaken()
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<List<TestTaken>>() {
+                    @Override
+                    public void accept(List<TestTaken> testTakens) throws Exception {
+                        mainViewInterface.onTestTakenLoaded(testTakens);
                     }
                 });
     }
@@ -98,5 +125,31 @@ public class LocalCacheManager {
         });
     }
 
+
+
+    public void addTestTakens(final TestTakenInterface addNoteViewInterface, TestTaken testTaken) {
+        Completable.fromAction(new Action() {
+            @Override
+            public void run() throws Exception {
+                db.testTakenDoa().insertAll(testTaken);
+            }
+        }).observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io()).subscribe(new CompletableObserver() {
+            @Override
+            public void onSubscribe(Disposable d) {
+            }
+
+            @Override
+            public void onComplete() {
+                addNoteViewInterface.onTestTakenAdded();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d("ERROR", "onError: " + e);
+                addNoteViewInterface.onDataNotAvailable();
+            }
+        });
+    }
 
 }

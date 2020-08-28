@@ -21,17 +21,22 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.aby.capstone_quasars_bobal.adapter.AudioListerAdapter;
+import com.aby.capstone_quasars_bobal.database.LocalCacheManager;
+import com.aby.capstone_quasars_bobal.database.TestTaken;
+import com.aby.capstone_quasars_bobal.interfaces.TestTakenInterface;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link TestAudioListerFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TestAudioListerFragment extends Fragment implements AudioListerAdapter.OnItemClick {
+public class TestAudioListerFragment extends Fragment implements AudioListerAdapter.OnItemClick , TestTakenInterface {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -53,7 +58,7 @@ public class TestAudioListerFragment extends Fragment implements AudioListerAdap
     private Handler handler;
     private Runnable runnable;
 
-    private File[] files;
+    private ArrayList<TestReply> files;
 
     private MediaPlayer mediaPlayer = null;
     private boolean isPlaying = false;
@@ -122,11 +127,20 @@ public class TestAudioListerFragment extends Fragment implements AudioListerAdap
 
 
         recyclerView = view.findViewById(R.id.audio_list_view);
-        String path = getActivity().getExternalFilesDir("/").getAbsolutePath();
-        File directory = new File(path);
-        files = directory.listFiles();
+
+        // this partt
+
+        LocalCacheManager.getInstance(getContext()).getTestTakensLatest(this);
+//        String path = getActivity().getExternalFilesDir("/").getAbsolutePath();
+//        File directory = new File(path);
+//        files = directory.listFiles();
+        files = new ArrayList<>();
+
 
         audioListerAdapter = new AudioListerAdapter(files, this);
+
+
+        //
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setAdapter(audioListerAdapter);
@@ -156,8 +170,10 @@ public class TestAudioListerFragment extends Fragment implements AudioListerAdap
     }
 
     @Override
-    public void onClickListner(File file, int position) {
-        fileCurrent = file;
+    public void onClickListner(TestReply file, int position) {
+
+        File file1 = new File(file.getFilePath());
+        fileCurrent = file1;
         if(isPlaying){
             stopAudio();
             playAudio(fileCurrent);
@@ -268,6 +284,32 @@ public class TestAudioListerFragment extends Fragment implements AudioListerAdap
         if(isPlaying){
             stopAudio();
         }
+
+    }
+
+    @Override
+    public void onTestTakenLoaded(List<TestTaken> testTakens) {
+        System.out.println("testTakens = loaded" + testTakens);
+        TestTaken testTaken = testTakens.get(0);
+
+        ArrayList<TestReply> testReplies = new ArrayList<>();
+        for(int i = 0; i< testTaken.getQuestions().size(); i++){
+            testReplies.add(new TestReply(testTaken.getQuestions().get(i),
+                    testTaken.getAudioPaths().get(i)));
+        }
+
+        audioListerAdapter = new AudioListerAdapter(testReplies, this);
+        recyclerView.setAdapter(audioListerAdapter);
+
+    }
+
+    @Override
+    public void onTestTakenAdded() {
+
+    }
+
+    @Override
+    public void onDataNotAvailable() {
 
     }
 }

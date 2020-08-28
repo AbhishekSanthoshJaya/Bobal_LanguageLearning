@@ -21,11 +21,16 @@ import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.aby.capstone_quasars_bobal.database.LocalCacheManager;
 import com.aby.capstone_quasars_bobal.database.SpeakingTest;
+import com.aby.capstone_quasars_bobal.database.TestTaken;
+import com.aby.capstone_quasars_bobal.interfaces.TestTakenInterface;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -33,7 +38,7 @@ import java.util.Locale;
  * Use the {@link TestFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TestFragment extends Fragment implements View.OnClickListener {
+public class TestFragment extends Fragment implements View.OnClickListener , TestTakenInterface {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -43,6 +48,7 @@ public class TestFragment extends Fragment implements View.OnClickListener {
     private NavController navController;
     private ImageButton lstBtn;
     private ImageButton  recordBtn;
+    String currFilePath = "";
 
     SpeakingTest speakingTest;
     int currentQuestion;
@@ -57,6 +63,9 @@ public class TestFragment extends Fragment implements View.OnClickListener {
     private String mParam1;
     private String mParam2;
     private String recordFile;
+    private ArrayList<String> filepaths;
+    private ArrayList<String> questions;
+
 
     public TestFragment() {
         // Required empty public constructor
@@ -115,6 +124,9 @@ public class TestFragment extends Fragment implements View.OnClickListener {
 
         lstBtn.setOnClickListener(this);
 
+        filepaths = new ArrayList<>();
+        questions = new ArrayList<>();
+
         questionText = view.findViewById(R.id.question_text_view);
         Intent intent= getActivity().getIntent();
         speakingTest = (SpeakingTest) intent.getSerializableExtra("test");
@@ -172,13 +184,15 @@ public class TestFragment extends Fragment implements View.OnClickListener {
 
         recordFile = "Record_"+simpleDateFormat.format(date)+".3gp";
 
-        directionText.setText("Recording: \n"+recordFile);
+        directionText.setText("Recording..");
 
         mediaRecorder = new MediaRecorder();
         mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         mediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mediaRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
         mediaRecorder.setOutputFile(filePath + "/" + recordFile);
+
+        currFilePath = filePath + "/" + recordFile;
         try {
             mediaRecorder.prepare();
         } catch (IOException e) {
@@ -194,11 +208,19 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         mediaRecorder.stop();
         mediaRecorder.release();
         mediaRecorder = null;
-        directionText.setText("Recording Stopped for: \n"+ recordFile);
+        directionText.setText("Read Question, \n Press Record, \n Speak");
+
+        filepaths.add(currFilePath);
+        questions.add(speakingTest.getQuestions().get(currentQuestion));
 
         currentQuestion +=1;
         if(currentQuestion >= totalNumberOfQuestion) {
-            questionText.setText("Test Completed");
+            questionText.setText("Getting Results...");
+            LocalCacheManager.getInstance(getContext()).addTestTakens(this,
+                    new TestTaken(speakingTest.getName(),filepaths, questions));
+            directionText.setText("");
+            recordBtn.setVisibility(View.INVISIBLE);
+            chronometer.setVisibility(View.INVISIBLE);
 
         }
         else{
@@ -223,6 +245,23 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         if(isRecording){
             stopRecording();
         }
+
+    }
+
+    @Override
+    public void onTestTakenLoaded(List<TestTaken> testTakens) {
+
+    }
+
+    @Override
+    public void onTestTakenAdded() {
+        questionText.setText("Test Complete. \nClick Below to Review");
+        lstBtn.setVisibility(View.VISIBLE);
+
+    }
+
+    @Override
+    public void onDataNotAvailable() {
 
     }
 }
