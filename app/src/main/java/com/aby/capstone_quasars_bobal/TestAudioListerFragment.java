@@ -47,7 +47,7 @@ public class TestAudioListerFragment extends Fragment implements AudioListerAdap
     private AudioListerAdapter audioListerAdapter;
 
     private ImageButton playBtn;
-    private TextView playerHeader, playerStatus;
+    private TextView playerHeader, playerStatus, playerFileName;
 
     private SeekBar seekBar;
     private Handler handler;
@@ -132,7 +132,9 @@ public class TestAudioListerFragment extends Fragment implements AudioListerAdap
         recyclerView.setAdapter(audioListerAdapter);
 
         playBtn = view.findViewById(R.id.play_image_button);
-        playerHeader = view.findViewById(R.id.file_name_text_view);
+        playerHeader = view.findViewById(R.id.player_header_name);
+        playerFileName = view.findViewById(R.id.file_name_text_view);
+
         playerStatus = view.findViewById(R.id.player_header_status);
 
         seekBar = view.findViewById(R.id.seekBar);
@@ -172,6 +174,8 @@ public class TestAudioListerFragment extends Fragment implements AudioListerAdap
         isPlaying = false;
         playBtn.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_baseline_play_circle_filled_24));
         handler.removeCallbacks(runnable);
+        playerStatus.setText("Stopped");
+
     }
 
     private void resumeAudio(){
@@ -179,6 +183,7 @@ public class TestAudioListerFragment extends Fragment implements AudioListerAdap
         isPlaying = true;
         playBtn.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_baseline_pause_24));
         updateRunnable();
+        playerStatus.setText("Playing");
         handler.postDelayed(runnable,0);
     }
 
@@ -200,7 +205,7 @@ public class TestAudioListerFragment extends Fragment implements AudioListerAdap
 
         bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
         playBtn.setImageDrawable(getActivity().getResources().getDrawable(R.drawable.ic_baseline_pause_24));
-        playerHeader.setText(fileCurrent.getName());
+        playerFileName.setText(fileCurrent.getName());
         playerStatus.setText("Playing");
         mediaPlayer.start();
         isPlaying = true;
@@ -209,7 +214,7 @@ public class TestAudioListerFragment extends Fragment implements AudioListerAdap
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {
                 stopAudio();
-                playerHeader.setText("Finished");
+                playerStatus.setText("Finished");
             }
         });
 
