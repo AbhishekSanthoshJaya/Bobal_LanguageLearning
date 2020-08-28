@@ -8,6 +8,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 
+import com.aby.capstone_quasars_bobal.database.LocalCacheManager;
+import com.aby.capstone_quasars_bobal.database.SpeakingTest;
+import com.aby.capstone_quasars_bobal.interfaces.MainViewInterface;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import butterknife.BindView;
@@ -16,7 +22,7 @@ import butterknife.OnClick;
 
 import static androidx.core.view.ViewCompat.getTransitionName;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements MainViewInterface {
 
 
     @BindView(R.id.cv_flash_card)
@@ -32,6 +38,30 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        ArrayList<String> qs1 = new ArrayList<String>();
+        qs1.add("q1");
+        qs1.add("q2");
+        qs1.add("q3");
+        qs1.add("q4");
+        LocalCacheManager.getInstance(this).addTests(this,new SpeakingTest('1',"ttestt1",qs1));
+
+        ArrayList<String> qs2 = new ArrayList<String>();
+        qs1.add("q1");
+        qs1.add("q2");
+        qs1.add("q3");
+        qs1.add("q4");
+        LocalCacheManager.getInstance(this).addTests(this,new SpeakingTest('2',"Test2",qs2));
+
+        ArrayList<String> qs3 = new ArrayList<String>();
+        qs1.add("q1");
+        qs1.add("q2");
+        qs1.add("q3");
+        qs1.add("q4");
+        LocalCacheManager.getInstance(this).addTests(this,new SpeakingTest('3',"Test3",qs3));
+
+
         ButterKnife.bind(this);
 
     }
@@ -58,4 +88,18 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void onTestLoaded(List<SpeakingTest> speakingTests) {
+
+    }
+
+    @Override
+    public void onTestAdded() {
+        System.out.println("test added");
+    }
+
+    @Override
+    public void onDataNotAvailable() {
+
+    }
 }

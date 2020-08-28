@@ -4,9 +4,13 @@ import android.content.Context;
 import android.util.Log;
 
 
+import androidx.room.RoomDatabase;
+import androidx.sqlite.db.SupportSQLiteDatabase;
+
 import com.aby.capstone_quasars_bobal.interfaces.MainViewInterface;
 
 import java.util.List;
+import java.util.concurrent.Executors;
 
 import io.reactivex.Completable;
 import io.reactivex.CompletableObserver;
@@ -44,6 +48,25 @@ public class LocalCacheManager {
                         mainViewInterface.onTestLoaded(speakingTests);
                     }
                 });
+    }
+
+    private static RoomDatabase.Callback dbCallback = new RoomDatabase.Callback() {
+        public void onCreate(SupportSQLiteDatabase db) {
+
+            Executors.newSingleThreadScheduledExecutor().execute(new Runnable() {
+                @Override
+                public void run() {
+//                    addTests(context);
+                    System.out.println("Insert called");
+
+                }
+            });
+        }
+    };
+
+    private void addTests(Context context){
+        System.out.println("Insert called");
+
     }
 
 

@@ -28,6 +28,12 @@ public class SpeakingTest  implements Serializable {
         this.questions = questions;
     }
 
+    public SpeakingTest( String name, ArrayList<String> questions) {
+
+        this.name = name;
+        this.questions = questions;
+    }
+
     public int getId() {
         return id;
     }

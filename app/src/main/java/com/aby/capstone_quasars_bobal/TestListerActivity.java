@@ -51,17 +51,9 @@ public class TestListerActivity extends AppCompatActivity implements MainViewInt
             adapter.setOnItemClickListner(new TestListerAdapter.OnItemClickListner() {
                 @Override
                 public void onItemClick(SpeakingTest note) {
-//                    Intent intent = new Intent(TestListerActivity.this,EditableDetailViewActivity.class);
-//                    intent.putExtra(NOTE_OBJECT_NAME,note);
-//                    intent.putExtra("transition_name", getTransitionName(view));
-//
-//                    ActivityOptionsCompat options;
-//                    options = ActivityOptionsCompat.makeSceneTransitionAnimation(
-//                            MainActivity.this,
-//                            view,
-//                            Objects.requireNonNull(getTransitionName(view)));
-
-//                    startActivity(intent, options.toBundle());
+                    Intent intent = new Intent(TestListerActivity.this,SpeakingTestActivity.class);
+                    intent.putExtra("test",note);
+                    startActivity(intent);
                 }
             });
             recyclerView.setAdapter(adapter);
