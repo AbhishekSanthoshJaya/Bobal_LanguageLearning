@@ -1,24 +1,33 @@
 package com.aby.capstone_quasars_bobal;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
+import com.aby.capstone_quasars_bobal.adapter.AudioListerAdapter;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+
+import java.io.File;
+import java.io.IOException;
 
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link TestAudioListerFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class TestAudioListerFragment extends Fragment {
+public class TestAudioListerFragment extends Fragment implements AudioListerAdapter.OnItemClick {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,6 +39,14 @@ public class TestAudioListerFragment extends Fragment {
     private String mParam2;
     private ConstraintLayout constraintLayout;
     private BottomSheetBehavior bottomSheetBehavior;
+    private RecyclerView recyclerView;
+    private AudioListerAdapter audioListerAdapter;
+
+    private File[] files;
+
+    private MediaPlayer mediaPlayer = null;
+    private boolean isPlaying = false;
+    private File fileCurrent;
 
     public TestAudioListerFragment() {
         // Required empty public constructor
@@ -90,5 +107,49 @@ public class TestAudioListerFragment extends Fragment {
             }
         });
 
+
+        recyclerView = view.findViewById(R.id.audio_list_view);
+        String path = getActivity().getExternalFilesDir("/").getAbsolutePath();
+        File directory = new File(path);
+        files = directory.listFiles();
+
+        audioListerAdapter = new AudioListerAdapter(files, this);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(audioListerAdapter);
+    }
+
+    @Override
+    public void onClickListner(File file, int position) {
+
+        if(isPlaying){
+            stopAudio();
+            isPlaying = !isPlaying;
+            playAudio(fileCurrent);
+
+        }
+        else{
+            fileCurrent = file;
+            playAudio(fileCurrent);
+            isPlaying = !isPlaying;
+
+        }
+    }
+
+    private void stopAudio() {
+        isPlaying = false;
+    }
+
+    private void playAudio(File fileCurrent) {
+        mediaPlayer = new MediaPlayer();
+        try {
+            mediaPlayer.setDataSource(fileCurrent.getAbsolutePath());
+            mediaPlayer.prepare();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        mediaPlayer.start();
+        isPlaying = true;
     }
 }
