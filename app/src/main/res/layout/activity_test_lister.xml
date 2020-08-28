@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white_off"
+    android:background="#E5E5E5"
     tools:context=".TestListerActivity">
 
     <androidx.recyclerview.widget.RecyclerView
@@ -24,11 +24,11 @@
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Speaking Tests"
         android:fontFamily="@font/montserrat"
+        android:padding="10sp"
+        android:text="Speaking Tests"
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/tests_recycle_view"
-        android:padding="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
