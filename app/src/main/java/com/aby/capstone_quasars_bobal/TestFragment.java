@@ -44,6 +44,9 @@ public class TestFragment extends Fragment implements View.OnClickListener {
     private ImageButton lstBtn;
     private ImageButton  recordBtn;
 
+    SpeakingTest speakingTest;
+    int currentQuestion;
+    int totalNumberOfQuestion;
 
     private boolean isRecording = false;
     private MediaRecorder mediaRecorder;
@@ -114,8 +117,10 @@ public class TestFragment extends Fragment implements View.OnClickListener {
 
         questionText = view.findViewById(R.id.question_text_view);
         Intent intent= getActivity().getIntent();
-        SpeakingTest speakingTest = (SpeakingTest) intent.getSerializableExtra("test");
+        speakingTest = (SpeakingTest) intent.getSerializableExtra("test");
         questionText.setText(speakingTest.getQuestions().get(0).toString());
+        totalNumberOfQuestion = speakingTest.getQuestions().size();
+        currentQuestion = 0;
     }
 
     @Override
@@ -190,6 +195,15 @@ public class TestFragment extends Fragment implements View.OnClickListener {
         mediaRecorder.release();
         mediaRecorder = null;
         directionText.setText("Recording Stopped for: \n"+ recordFile);
+
+        currentQuestion +=1;
+        if(currentQuestion >= totalNumberOfQuestion) {
+            questionText.setText("Test Completed");
+
+        }
+        else{
+            questionText.setText(speakingTest.getQuestions().get(currentQuestion));
+        }
 
 
 
