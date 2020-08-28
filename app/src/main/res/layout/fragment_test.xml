@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".TestFragment">
+
+    <TextView
+        android:id="@+id/question_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:fontFamily="@font/montserrat"
+        android:text="What do you do in free time?"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:fontFamily="@font/montserrat"
+        android:text="Press Record and\n Start speaking"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="18sp"
+        android:lineHeight="32dp"
+        android:textAlignment="center"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        android:id="@+id/direction_text"
+        app:layout_constraintTop_toBottomOf="@id/question_text_view"
+
+        />
+
+    <Chronometer
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/record_timer"
+        app:layout_constraintTop_toBottomOf="@+id/direction_text"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="sans-serif-light"
+        android:textSize="50sp"
+        android:layout_marginTop="50dp"
+        />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/speak_button"
+        app:layout_constraintTop_toBottomOf="@id/record_timer"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:src="@drawable/dot"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/test_audio_lst_button"
+        android:src="@drawable/ic_baseline_playlist_play_24"
+        app:layout_constraintTop_toTopOf="@id/speak_button"
+        app:layout_constraintStart_toEndOf="@id/speak_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="20dp"
+        android:background="@null"
+
+        app:layout_constraintBottom_toBottomOf="@id/speak_button"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
