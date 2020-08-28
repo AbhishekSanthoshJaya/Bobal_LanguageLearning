@@ -41,15 +41,15 @@
         app:layout_constraintVertical_bias="0.07" />
 
     <TextView
-        android:id="@+id/finish"
-        android:layout_width="79dp"
-        android:layout_height="25dp"
+        android:id="@+id/next4"
+        android:layout_width="85dp"
+        android:layout_height="43dp"
         android:layout_marginBottom="40dp"
         android:background="@drawable/rounded_textview"
         android:gravity="center"
         android:text="Next"
         android:textColor="@color/ylw"
-        android:textSize="18sp"
+        android:textSize="14sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
