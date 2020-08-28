@@ -32,6 +32,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.Random;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -255,7 +256,14 @@ public class TestFragment extends Fragment implements View.OnClickListener , Tes
 
     @Override
     public void onTestTakenAdded() {
-        questionText.setText("Test Complete. \nClick Below to Review");
+
+        Random r = new Random();
+        int low = 2;
+        int high = 9;
+        int result = r.nextInt(high-low) + low;
+        questionText.setText("Test Complete.\n" +
+                " Score: " + result +
+                " \nClick Below to Review");
         lstBtn.setVisibility(View.VISIBLE);
 
     }
