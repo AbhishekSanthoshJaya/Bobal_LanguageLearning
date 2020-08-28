@@ -83,7 +83,7 @@ public class FlashCardActivity extends AppCompatActivity {
                 flipCard();
                 txtFront.setText(wordList.get(rand2));
                // txtBack.setText(meaningList.get(rand2));
-                txtBack.setText(wordList.get(rand2)+"("+(posList.get(rand2))+")" + " : " + meaningList.get(rand2));
+                txtBack.setText(wordList.get(rand2)+"("+(posList.get(rand2))+")" + ": " + meaningList.get(rand2));
             }
         });
         btnWrong.setOnClickListener(new View.OnClickListener() {
@@ -94,6 +94,10 @@ public class FlashCardActivity extends AppCompatActivity {
                 loadAnimations();
                 changeCameraDistance();
                 flipCard();
+                int rand2 = generateRandom();
+                txtFront.setText(wordList.get(rand2));
+                // txtBack.setText(meaningList.get(rand2));
+                txtBack.setText(wordList.get(rand2)+"("+(posList.get(rand2))+")" + ": " + meaningList.get(rand2));
                 txtScore2.setText(wrongAnswers + " WRONG");
             }
         });

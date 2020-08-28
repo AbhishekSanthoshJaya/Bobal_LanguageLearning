@@ -18,6 +18,7 @@ class ViewPagerFragment : Fragment() {
         val fragmentlist = arrayListOf<Fragment>()
         return null;
 
+    return null;
     }
 
 }

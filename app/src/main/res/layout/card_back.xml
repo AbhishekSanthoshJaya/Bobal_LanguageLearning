@@ -55,7 +55,7 @@
             android:background="@drawable/rectangle"
             android:shadowColor="#F6F0F0"
             android:text="Correct"
-            android:textColor="#020202" />
+            android:textColor="#FFFFFF" />
 
         <Button
             android:id="@+id/btnWrong"
@@ -65,7 +65,7 @@
             android:background="@drawable/rectangle2"
             android:shadowColor="#FFFFFF"
             android:text="WRONG"
-            android:textColor="#000000" />
+            android:textColor="#FFFFFF" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
