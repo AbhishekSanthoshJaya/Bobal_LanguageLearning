@@ -152,7 +152,7 @@ public class HomeActivity extends AppCompatActivity implements ArticleAdapterSma
     }
 
     private void parseArticle(){
-        String url = "http://142.93.156.57:8983/solr/article_search/select?rows=5&q=canada";
+        String url = "http://bobalsolr.ranaprakash.com:8983/solr/article_search/select?rows=5&q=canada";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {

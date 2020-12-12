@@ -90,7 +90,7 @@ public class ArticleAdapterSmall extends RecyclerView.Adapter<ArticleAdapterSmal
             }
             else{
                 // voley call
-                String url = "http://142.93.156.57:8983/solr/article_search/select?q=*:*";
+                String url = "http://bobalsolr.ranaprakash.com:8983/solr/article_search/select?q=*:*";
 
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                         new Response.Listener<JSONObject>() {

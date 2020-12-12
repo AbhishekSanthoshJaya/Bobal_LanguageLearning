@@ -80,7 +80,7 @@ public class             ArticleListerActivity extends AppCompatActivity impleme
                 if(newText.isEmpty()){
                     newText= "*:*";
                 }
-                String url = "http://142.93.156.57:8983/solr/article_search/select?rows=20&hl=true&hl=true&hl.simple.pre=<b><em>&&hl.simple.post=</em></b>&q="+newText;
+                String url = "http://bobalsolr.ranaprakash.com:8983/solr/article_search/select?rows=20&hl=true&hl=true&hl.simple.pre=<b><em>&&hl.simple.post=</em></b>&q="+newText;
 
                 String finalNewText = newText;
                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
@@ -154,7 +154,7 @@ public class             ArticleListerActivity extends AppCompatActivity impleme
     }
 
     private void parseArticle(){
-        String url = "http://142.93.156.57:8983/solr/article_search/select?rows=20&q=*:*";
+        String url = "http://bobalsolr.ranaprakash.com:8983/solr/article_search/select?rows=20&q=*:*";
 
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, url, null,
                 new Response.Listener<JSONObject>() {
